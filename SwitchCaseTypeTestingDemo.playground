@@ -4,7 +4,8 @@
 //
 //  Created by Gaurav Keshre on 05/05/17.
 //
-// Blog Link: 
+
+/** Refer: [Blog Link](https://www.linkedin.com/pulse/simplifying-segues-routing-code-awesome-switch-case-swift-keshre)*/
 
 import UIKit
 
