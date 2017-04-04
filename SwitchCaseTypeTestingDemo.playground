@@ -1,0 +1,77 @@
+//
+//  SwitchCaseTypeTestingDemo.playground
+//  Swift Playgrounds
+//
+//  Created by Gaurav Keshre on 05/05/17.
+//
+// Blog Link: 
+
+import UIKit
+
+var str = "Hello, playground"
+//MARK:- Extensions
+//--------------------------
+
+public extension String{
+    static let One = "OneIdentifier"
+    static let Two = "TwoIdentifier"
+    static let Three = "ThreeIdentifier"
+}
+
+//MARK:- Classes
+//--------------------------
+class SomeBaseClass: UIViewController{
+    
+}
+
+class ChildOne: SomeBaseClass{
+    
+}
+class ChildTwo: SomeBaseClass{
+    
+}
+class ChildThree: SomeBaseClass{
+    
+}
+
+struct Coordinator{
+    let identifier: String
+    let child: SomeBaseClass
+}
+
+class Consumer{
+    let coordinator: Coordinator
+    
+    init(coordinator: Coordinator) {
+        self.coordinator = coordinator
+    }
+    
+
+    func consume() -> String{
+        switch (coordinator.identifier, coordinator.child) {
+        case (String.One, is ChildOne): return "\(coordinator) : One"
+        case (String.Two, is ChildTwo): return "\(coordinator) : Two"
+        case (String.Three, is ChildThree): return "\(coordinator) : Three"
+        default:
+            return "FISH"
+        }
+    }
+}
+
+
+////ACTION 🎬
+
+
+let co1 = Coordinator(identifier: .One, child: ChildOne())
+let co2 = Coordinator(identifier: .Two, child: ChildTwo())
+let co3 = Coordinator(identifier: .Three, child: ChildThree())
+
+
+let consumer1 = Consumer(coordinator: co1)
+let consumer2 = Consumer(coordinator: co2)
+let consumer3 = Consumer(coordinator: co3)
+
+
+print(consumer1.consume())
+print(consumer2.consume())
+print(consumer3.consume())
